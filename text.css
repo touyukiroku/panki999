@@ -1,8 +1,37 @@
-div#sikaku1{
-  width: 100px;
-  height:50px ;
-  background:#dddddd;
+.table1{
+  text-align: center;
+
 }
  h1{
    color: red;
  }
+.table2{
+  background:#dddddd;
+  padding:2px 2px 2px 2px;
+}
+ul{
+  text-align: center;
+}
+li{
+  display: inline-block;
+  font-size: 12px;
+  padding: 3px 3px 3px 3px;
+}
+a{
+  text-decoration: none;
+
+}
+a.lisuto{
+  display: block;
+  width: 100px;
+  line-height: 50px;
+  text-decoration: none;
+}
+
+img.topimage{
+  zoom:0.4;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+}
