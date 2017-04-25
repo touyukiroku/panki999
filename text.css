@@ -14,18 +14,19 @@ ul{
 }
 li{
   display: inline-block;
-  font-size: 12px;
-  padding: 3px 3px 3px 3px;
+  font-size: 15px;
+  padding: 3px 0px 3px 3px;
 }
-a{
+a.daibutabu{
   text-decoration: none;
 
 }
 a.lisuto{
   display: block;
-  width: 100px;
+  width: 150px;
   line-height: 50px;
   text-decoration: none;
+
 }
 
 img.topimage{
