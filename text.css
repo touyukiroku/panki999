@@ -1,31 +1,22 @@
-.table1{
-  text-align: center;
-
-}
- h1{
-   color: red;
- }
 .table2{
   background:#dddddd;
   padding:2px 2px 2px 2px;
 }
 ul{
-  text-align: center;
+    text-align: center;
 }
 li{
   display: inline-block;
   font-size: 15px;
-  padding: 3px 0px 3px 3px;
+
 }
 a{
   text-decoration: none;
-
 }
 a.lisuto{
   display: block;
   width: 150px;
   line-height: 50px;
-  text-decoration: none;
 }
 
 img.topimage{
@@ -33,4 +24,11 @@ img.topimage{
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+body{
+  background-clip: border-box;
+}
+div.bag{
+  background-color: #ffffff;
 }

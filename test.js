@@ -1,3 +1,3 @@
 $(function() {
-  $('p').click(function() {$(this).fadeOut('slow');});
+  $('p.aaa').click(function() {$(this).fadeOut('slow');});
 });
