@@ -1,0 +1,14 @@
+.aboutT{
+  background:#eeeeee;
+  border:0px;
+  border-collapse: collapse;
+  border-style: hidden;
+}
+
+.aboutT2{
+  border: 1px;
+  border-style: dotted;
+  line-height: 230%;
+  border-color: #bbbbbb;
+  padding: 0px 15px 0px 15px;
+}
