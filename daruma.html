@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>daruma</title>
+    <script type="text/javascript" src="./p5.js"></script>
+
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>
+
+<script type="text/javascript">
+var moyo=[6];
+var aa=500;//だるまのｘ座標
+var bb=300;//だるまのｙ座標
+var cc=0;//だるまの角度の初期値
+var dd=1;//だるまの大きさ
+var colo=0;
+var flag1=0;
+var flag2=0;
+var flag3=0;
+var iii=0;
+
+  function setup(){
+    createCanvas(1000, 600);
+  }
+var kk=1;
+var rr=2;
+
+  function draw(){
+    background(0);
+  drawCharacter(aa, bb, cc+kk, dd);
+  //だるまの角度の変化
+  if (flag2==1) {
+    aa=aa+rr;
+    cc=cc+kk;
+    if (aa>=600) {
+      rr=-rr;
+      kk=-kk;
+    }
+    if (aa<=500) {
+      rr=-rr;
+      kk=-kk;
+      aa=500;
+      cc=0;
+      flag2=0;
+    }
+  }
+  if (flag2==2) {
+    aa=aa-rr;
+    cc=cc-kk;
+    if (aa<=400) {
+      rr=-rr;
+      kk=-kk;
+    }
+    if (aa>=500) {
+      rr=-rr;
+      kk=-kk;
+      aa=500;
+      flag2=0;
+    }
+  }
+  if(flag3==1){
+    colo=-255;
+  }else{
+    colo=0;
+  }
+}
+var i=0;
+
+function keyPressed() {
+  switch(keyCode) {
+    //右キーを押すと右に傾く
+  case RIGHT:
+    if (flag2==0) {
+      flag2=1;
+    }
+    break;
+    //左キーを押すと左に傾く
+  case LEFT:
+    if (flag2==0) {
+      flag2=2;
+    }
+    break;
+    //上下キーで色が変わる
+  case UP:
+    flag3++;
+    flag3=flag3%2;
+    break;
+  case DOWN:
+    flag3++;
+    flag3=flag3%2;
+    break;
+  }
+}
+
+function mousePressed() {
+  if (dist(aa-60, bb-70, mouseX, mouseY)<25&&flag1==0) {
+    flag1=1;
+  } else if (dist(aa+60, bb-70, mouseX, mouseY)<25&&flag1==1) {
+    flag1=2;
+  }
+
+  if (dist(aa+60, bb-70, mouseX, mouseY)<25&&flag1==0) {
+    flag1=3;
+  } else if (dist(aa-60, bb-70, mouseX, mouseY)<25&&flag1==3) {
+    flag1=6;
+  }
+}
+
+  function drawCharacter(x,y,angle_deg,scale_factor) {
+  var offset_x=220;
+  var offset_y=210;
+  push();
+  translate(x, y);
+  scale(scale_factor);
+  rotate(radians(angle_deg));
+  translate(-offset_x, -offset_y);
+  strokeWeight(3);
+  //体
+  stroke(0, 0, 0);
+  fill(255, 255+colo, 255+colo);
+  bezier(130, 370, -70, 320, 30, 20, 220, 20);
+  bezier(220, 20, 410, 20, 510, 320, 310, 370);
+  line(130, 370, 130, 390);
+  line(130, 390, 310, 390);
+  line(310, 390, 310, 370);
+  //顔の輪郭
+  fill(255,255,255);
+  bezier(130, 220, -20, 220, 110, 60, 130, 60);
+  bezier(310, 220, 460, 220, 330, 60, 310, 60);
+  line(130, 220, 310, 220);
+  line(130, 60, 310, 60);
+  stroke(255, 255, 255);
+  fill(255, 255, 255);
+  rect(130, 217, 180, -154);
+  //体の色の補い
+  stroke(255, 255+colo, 255+colo);
+  fill(255, 255+colo, 255+colo);
+  triangle(210, 57, 220, 24, 230, 57);
+  rect(133, 387, 174, -164);
+  //まゆげ
+  stroke(0, 0, 0);
+  fill(0, 0, 0);
+  bezier(210, 100, 30, 130, 180, 10, 210, 100);
+  bezier(230, 100, 410, 130, 260, 10, 230, 100);
+  stroke(255);
+  fill(255);
+  triangle(220, 90, 220, 100, 165, 90);
+  triangle(220, 90, 220, 100, 275, 90);
+  //白目
+  fill(255);
+  stroke(0);
+  ellipse(160, 140, 50, 50);
+  ellipse(270, 140, 50, 50);
+  //体
+  moyo[iii]=iii;
+  for (iii=0; iii<3; iii++) {
+    fill(250, 200, 0);
+    bezier(280+iii*35, 340, 280+iii*35, 120, 330+iii*35, 290, 280+iii*35, 340);
+    bezier(100+iii*35, 340, 100+iii*35, 120, 50+iii*35, 290, 100+iii*35, 340);
+  }
+  //ひげ  口横
+  fill(0);
+  triangle(260, 190, 320, 190, 315, 170);
+  triangle(260, 180, 315, 175, 310, 160);
+  ellipse(315, 175, 41, 30);
+  triangle(180, 190, 120, 190, 105, 170);
+  triangle(180, 180, 125, 175, 123, 159);
+  ellipse(120, 174, 40, 30);
+  //ひげ　口下
+  triangle(240, 200, 270, 215, 300, 215);
+  triangle(270, 200, 330, 215, 350, 208);
+  triangle(200, 200, 170, 215, 140, 215);
+  triangle(170, 200, 110, 215, 90, 208);
+  //口
+  stroke(255, 0, 0);
+  noFill();
+  line(200, 190, 240, 190);
+  //黒目の条件判定
+  stroke(0);
+  if (flag1==1) {
+    fill(0);
+    ellipse(160, 140, 30, 30);
+  }
+  if (flag1==2) {
+    fill(0);
+    ellipse(270, 140, 30, 30);
+    ellipse(160, 140, 30, 30);
+  }
+  if (flag1==3) {
+    fill(0);
+    ellipse(270, 140, 30, 30);
+  }
+  if (flag1==6) {
+    fill(0);
+    ellipse(270, 140, 30, 30);
+    ellipse(160, 140, 30, 30);
+  }
+  fill(255+colo, 0, 0);
+  drawmozi(186, 230, 6);
+  pop();
+}
+
+function drawmozi(x2,y2,scalefactor) {
+var offsetx=0;
+var offsety=0;
+push();
+translate(x2, y2);
+scale(scalefactor);
+translate(-offsetx, -offsety);
+text("合", 0, 10);
+text("格", 0, 22);
+pop();
+}
+
+</script>
